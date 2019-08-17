@@ -8,20 +8,19 @@ namespace QuickBuy.Dominio.Entidades
 {
     public class Pedido : Entidade
     {
-        public int Id { get; set; }
-        public DateTime DataPedido { get; set; }
-        public int UsuarioId { get; set; }
-        public DateTime DataPrevisaoEntrega { get; set; }
-        public string CEP { get; set; }
-        public string Estado { get; set; }
-        public string Cidade { get; set; }
-        public string EnderecoCompleto { get; set; }
-        public int NumeroEndereco { get; set; }
-
-        public int FormaPagamentoId { get; set; }
-        public FormaPagamento FormaPagamento { get; set; }
-
-        public ICollection<ItemPedido> ItensPedido { get; set; }
+        public virtual int Id { get; set; }
+        public virtual DateTime DataPedido { get; set; }
+        public virtual int UsuarioId { get; set; }
+        public virtual DateTime DataPrevisaoEntrega { get; set; }
+        public virtual string CEP { get; set; }
+        public virtual string Estado { get; set; }
+        public virtual string Cidade { get; set; }
+        public virtual string EnderecoCompleto { get; set; }
+        public virtual int NumeroEndereco { get; set; }
+        public virtual int FormaPagamentoId { get; set; }
+        public virtual FormaPagamento FormaPagamento { get; set; }
+        public virtual ICollection<ItemPedido> ItensPedido { get; set; }
+        public virtual Usuario Usuario { get; set; }
 
         public override void Validate()
         {
@@ -33,6 +32,8 @@ namespace QuickBuy.Dominio.Entidades
             if (string.IsNullOrEmpty(CEP))
                 AdicionarCritica("Erro - CEP deve estar preenchido");
 
+            if (FormaPagamentoId == 0)
+                AdicionarCritica("Erro - Não foi informado nenhuma forma de pagamento");
         }
     }
 }

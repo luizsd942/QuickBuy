@@ -16,6 +16,8 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
+            LimparMensagensValidacao();
+
             if (string.IsNullOrEmpty(Email))
                 AdicionarCritica("Email não foi informado");
 

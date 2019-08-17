@@ -11,17 +11,12 @@ namespace QuickBuy.Repositorio.Config
     {
         public void Configure(EntityTypeBuilder<Produto> builder)
         {
-            builder.HasKey(u => u.Id);
+            builder.HasKey(p => p.Id);
 
             ///Builder utiliza o padrão Fluent
-            builder.Property(u => u.Email).IsRequired().HasMaxLength(50);
-            builder.Property(u => u.Senha).IsRequired().HasMaxLength(400);
-            builder.Property(u => u.Preco).IsRequired();
-            builder.Property(u => u.Descricao).IsRequired().HasMaxLength(400);
-            ///builder.Property(u => u.Pedidos).IsRequired().HasMaxLength(400);
-
-            builder.Property(u => u.Nome)
-                .HasMaxLength(50);
+            builder.Property(p => p.Nome).IsRequired().HasMaxLength(50);
+            builder.Property(p => p.Preco).IsRequired();
+            builder.Property(p => p.Descricao).IsRequired().HasMaxLength(400);
         }
     }
 }

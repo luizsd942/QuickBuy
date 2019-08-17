@@ -20,18 +20,12 @@ namespace QuickBuy.Repositorio.Config
             builder.Property(u => u.DataPrevisaoEntrega).IsRequired();
             builder.Property(u => u.EnderecoCompleto).IsRequired().HasMaxLength(50);
             builder.Property(u => u.Estado).IsRequired().HasMaxLength(100);
-           // builder.Property(u => u.FormaPagamento).IsRequired().HasMaxLength(50);
-           // builder.Property(u => u.FormaPagamentoId).IsRequired().HasMaxLength(50);
-           // builder.Property(u => u.ItensPedido).IsRequired().HasMaxLength(50);
             builder.Property(u => u.NumeroEndereco).IsRequired().HasMaxLength(50);
             builder.Property(u => u.UsuarioId).IsRequired().HasMaxLength(50);
 
-
-
-            //builder.Property(u => u.Pedidos).IsRequired().HasMaxLength(400);
             builder.HasOne(p => p.FormaPagamento);
 
-            
+            builder.HasMany(p => p.ItensPedido);
         }
     }
 }
