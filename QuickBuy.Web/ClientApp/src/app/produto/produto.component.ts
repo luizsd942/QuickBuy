@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "app-produto",
-  template: "<html><body>{{ obterNome() }}</body></html>"
+  templateUrl: "produto.component.html"
 })
 export class ProdutoComponent {
   //id: number;
@@ -13,4 +13,9 @@ export class ProdutoComponent {
   public obterNome() {
     return "Teste Produto por Componente";
   }
+
+  enviar() {
+    alert('Teste');
+  }
+
 }
