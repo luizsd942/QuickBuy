@@ -7,6 +7,7 @@ using QuickBuy.Dominio.Entidades;
 
 namespace QuickBuy.Web.Controllers
 {
+    [Route("api/[Controller]")]
     public class UsuarioController : Controller
     {
         [HttpPost("VerificarUsuario")]
@@ -17,6 +18,19 @@ namespace QuickBuy.Web.Controllers
                 if (usuario.Email == "luiz@teste.com" && usuario.Senha=="abc123")
                     return Ok(usuario);
                 return BadRequest("Usuário ou senha inválido");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Post()
+        {
+            try
+            {
+                return Ok();
             }
             catch (Exception e)
             {

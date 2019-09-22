@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.usuarioServico.verificarUsuario(this.usuario).
       subscribe(
         data => {
-
+          
         },
         err => {
 
